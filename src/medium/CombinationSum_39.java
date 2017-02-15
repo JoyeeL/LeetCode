@@ -3,7 +3,10 @@ package medium;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
+/*
+ * 如果是计算有多少种可能的话，可以用dp做，类似coinChange
+ * return solve(candidate,sum+candidates[idx],idx)+solve(candidates,sum,idx+1);
+ */
 public class CombinationSum_39 {
 	  public List<List<Integer>> combinationSum(int[] candidates, int target) {
 	        List<List<Integer>> result = new ArrayList<List<Integer>>();

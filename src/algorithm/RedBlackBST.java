@@ -34,6 +34,8 @@ public class RedBlackBST<Key extends Comparable<Key>,Value> {
 		if(h == null) return 0;
 		else return h.N;
 	}
+	
+	//左旋转
 	private  Node rotateLeft(Node h){
 		Node x = h.right ;
 		h.right = x.left;
@@ -45,6 +47,7 @@ public class RedBlackBST<Key extends Comparable<Key>,Value> {
 		return x;
 	}
 	
+	//右旋转
 	private Node rotateRight(Node h){
 		Node x = h.left;
 		h.left = x.right;

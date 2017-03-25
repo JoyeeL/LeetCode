@@ -10,36 +10,43 @@ import java.util.Scanner;
  */
 public class Catch{
 	public static void main(String[] args) throws NumberFormatException, IOException{
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		String line = "";
-        while((line = br.readLine())!= null) {
-            String[] input = line.split(" ");
-           
-            List<point> pointList = new ArrayList<point>();
-            int i = 0;
-            while(i < input.length-2){
-            	
-        	   point rail = new point(Float.parseFloat(input[i]),Float.parseFloat(input[i+1]));
-        	   pointList.add(rail);
-        	   i =  i+2;
-           }
-            
-            point dinosaur = new point(Float.parseFloat(input[input.length-2]),Float.parseFloat(input[input.length-1]));
-            
-            boolean iscatch = false;
-            boolean flag = false;
-            for(int j =0 ; j < pointList.size()-2 && !flag ; j ++){
-            	for(int m = j+1; m < pointList.size()-1&&!flag; m ++){
-            		for(int n = m+1; n < pointList.size()&&!flag; n ++){
-            			iscatch = isInTriangle(pointList.get(j),pointList.get(m),pointList.get(n), dinosaur);
-            			if(iscatch == true) {
-            				System.out.println("true");
-            				flag =true;
-            				break;
-            			}
-            		}
-            	}
-            }
+		//Scanner in = new Scanner(System.in);
+        String line = "";
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	
+		while((line = br.readLine())!= null && !line.isEmpty()){
+			
+				String[] input = line.split(" ");
+	            
+	            List<point> pointList = new ArrayList<point>();
+	            int i = 0;
+	            while(i < input.length-2){
+	            	
+	        	   point rail = new point(Float.parseFloat(input[i]),Float.parseFloat(input[i+1]));
+	        	   pointList.add(rail);
+	        	   i =  i+2;
+	           }
+	            
+	            point dinosaur = new point(Float.parseFloat(input[input.length-2]),Float.parseFloat(input[input.length-1]));
+	            
+	            boolean iscatch = false;
+	            boolean flag = false;
+	            for(int j =0 ; j < pointList.size()-2 && !flag ; j ++){
+	            	for(int m = j+1; m < pointList.size()-1&&!flag; m ++){
+	            		for(int n = m+1; n < pointList.size()&&!flag; n ++){
+	            			iscatch = isInTriangle(pointList.get(j),pointList.get(m),pointList.get(n), dinosaur);
+	            			if(iscatch == true) {
+	            				System.out.println("true");
+	            				flag =true;
+	            				break;
+	            			}
+	            		}
+	            	}
+	            }
+	            
+	           // line = in.nextLine();
+			
+        	
         }
         
        

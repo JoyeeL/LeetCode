@@ -1,22 +1,29 @@
 package companyProgramming;
 
 import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class two {
-  public static void main(String[] args) {
-	Scanner in = new Scanner(System.in);
-	int[] c= new int[5];
-	while(in.hasNext()){
-		String line = in.nextLine();		
-		for(int i = 0; i < 5; i ++){
-			c[i] += (line.charAt(i)-'0');
-		}			
+	public static void main (String args[]) throws IOException{
+	 	int[] five = new int[5];
+	    String str;
+	    BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+	    for (int i=0;i<5;i++){
+	        five[i] =  0;
+	    }
+	    while((str=input.readLine())!=null && str.length()!=0){
+	        for(int i=0;i<5;i++){
+	            five[i] += (str.charAt(i) - '0');
+	        }
+	    }
+	    int min = 10000000;
+	    for(int i=0;i<5;i++){
+	        if(five[i]<min){
+	            min = five[i];
+	        }
+	    }
+	    System.out.println(min);
 	}
-	int min = Integer.MAX_VALUE;
-	for(int i = 0; i < 5; i++){
-		if(min > c[i]) min = c[i];
-	}
-	System.out.println(min);
-	in.close();
-}
 }

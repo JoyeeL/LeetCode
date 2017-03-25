@@ -3,23 +3,23 @@ package companyProgramming;
 import java.util.Scanner;
 import java.util.Stack;
 
-public class three {
-	public int postfixClc(String expr){
-		int ret  = 0;
-		long lhs = 0,rhs = 0;
+public class three{
+	public int calc(String expr){
+		int ret = 0;
+		int lhs = 0,rhs = 0;
 		Stack<Integer> stack = new Stack<Integer>();
 		int pos = 0;
 		while(pos < expr.length()){
-			Character c = expr.charAt(pos);
-			c = Character.toLowerCase(c);
-			if( c >= '0' && c <= '9'){
+			char c = expr.charAt(pos);
+			if(c >= '0' && c <= '9'){
 				stack.push(Character.digit(c, 10));
 			}else if(c >= 'a' && c <= 'f'){
 				stack.push(Character.digit(c, 16));
-			}else{
+			}
+			else{
 				rhs = stack.pop();
 				lhs = stack.pop();
-				ret = (int) calc(c,lhs,rhs);
+				ret = calc(c,lhs,rhs);
 				stack.push(ret);
 			}
 			pos++;
@@ -36,15 +36,28 @@ public class three {
 			return lhs*rhs;
 		
 	}
-public static void main(String[] args) {
-	Scanner in = new Scanner(System.in);
-	String line = "";
-	while(in.hasNext()){
-		line = in.nextLine().trim();
-		three main = new three();
-		int r = main.postfixClc(line);
-		System.out.println(r);
+
+	public int calc(char op, int lhs, int rhs){
+		if(op=='+'){
+			return lhs+rhs;
+		}else if(op=='-'){
+			return lhs-rhs;
+		}else if(op=='*'){
+			return lhs*rhs;
+		}else{
+			return lhs/rhs;
+		}
 	}
-	in.close();
-}
+	
+	public static void main(String[] args){
+		Scanner scanner = new Scanner(System.in);
+		while(scanner.hasNext()){
+			String line = scanner.nextLine();
+			three main = new three();
+			int r = main.calc(line);
+			System.out.println(r);
+		}
+		
+		scanner.close();
+	}
 }

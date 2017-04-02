@@ -74,6 +74,12 @@ public class Dijkstra {
 		}
 		return res;
 	}
+ public static void main(String[] args) {
+	 Dijkstra test = new Dijkstra();
+	 Node start = test.init();
+	 test.computePath(start);
+	 test.printPathInfo();
+}
 }
 
 class MapBuilder {

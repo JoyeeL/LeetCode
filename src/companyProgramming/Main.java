@@ -1,6 +1,7 @@
 package companyProgramming;
 
 import java.util.Scanner;
+import java.util.Vector;
 
 public class Main {
 	public int postfixCalc(String input){
@@ -30,14 +31,20 @@ public class Main {
 	}
 	
 	public static void main(String[] args) {
-		Scanner in = new Scanner(System.in);
-		String line = "";
-		while(in.hasNext()){
-			line = in.nextLine();
-			Main main = new Main();
-			int r = main.postfixCalc(line);
-			System.out.println(r);
-		}
-		in.close();
+		
+//		Vector obj = new Vector(4,2);
+//		obj.addElement(new Integer(3));
+//		obj.addElement(new Integer(2));
+//		obj.addElement(new Integer(5));
+//		System.out.println(obj.capacity());
+//		Scanner in = new Scanner(System.in);
+//		String line = "";
+//		while(in.hasNext()){
+//			line = in.nextLine();
+////			Main main = new Main();
+////			int r = main.postfixCalc(line);
+//			System.out.println(line);
+//		}
+//		in.close();
 	}
 }

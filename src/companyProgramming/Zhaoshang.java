@@ -17,15 +17,7 @@ public class Zhaoshang {
          
     TreeNode root;   
     
-    public void buildTree(TreeNode root,String first,String second,String thrid){  
-        if(root == null){  
-            root = new TreeNode(first);  
-        }else{  
-            if(root.data)
-        	
-            }  
-          
-    }  
+
     
 	/**   
      * 深度优先遍历，相当于先根遍历   
